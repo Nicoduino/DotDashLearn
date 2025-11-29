@@ -278,6 +278,4 @@ For issues, suggestions, or improvements:
 
 ---
 
-Happy learning! 📚 •−  −−−  •·•·•−•  •−  −−−  •−• •·•  •·•−•−  •••
-
-(That's "MORSE CODE" in Morse!)
+Happy learning!

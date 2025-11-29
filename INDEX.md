@@ -424,7 +424,7 @@ DotDashLearn/
 
 **Welcome to DotDashLearn!**
 
-*Find what you need in this index. Happy learning! 📚 •− −−−*
+*Find what you need in this index. Happy learning! 📚*
 
 ---
 

@@ -606,7 +606,7 @@ Lesson 27: Numbers 0-9
 
 ---
 
-**Happy Learning!** 📚 •−  −−−  •·•·•−•  •••  •−
+**Happy Learning!** 📚
 
 Good luck on your Morse code journey! 🎯
 

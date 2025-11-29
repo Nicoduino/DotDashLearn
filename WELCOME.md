@@ -458,7 +458,7 @@ Then visit: **http://localhost:3000**
 
 **Welcome to DotDashLearn!**
 
-*Learn Morse code the modern, easy way. 📚 •− −−− •·•·•−•*
+*Learn Morse code the modern, easy way.*
 
 ---
 

@@ -626,8 +626,6 @@ You now have everything needed to:
 
 *Learn Morse code the modern, easy way.*
 
-*•− −−− •·•·•−• •−  −−−  •−• •·•  •·•−•−  •••*
-
 ---
 
 **Status**: ✅ **COMPLETE & READY**

@@ -481,12 +481,6 @@ Created as a comprehensive Morse code learning platform.
 
 **Ready to learn Morse code? Start now!**
 
-```
-•−  −−−  •·•·•−•  •−  −−−  •−• •·•  •·•−•−  •••
-
-(That's "MORSE CODE" in Morse!)
-```
-
 ---
 
 **Version**: 1.0.0
