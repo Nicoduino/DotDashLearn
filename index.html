@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DotDashLearn - Learn Morse Code</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation will be inserted here -->
+        <nav class="navbar" id="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <span class="logo-icon">•−</span>
+                    <span class="logo-text">DotDashLearn</span>
+                </div>
+                <div class="navbar-menu" id="navbarMenu">
+                    <a href="#" class="nav-link" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="practice">Practice</a>
+                    <a href="#" class="nav-link" data-page="koch">Koch</a>
+                    <a href="#" class="nav-link" data-page="passive">Listen</a>
+                </div>
+                <div class="navbar-controls">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Home Page -->
+            <div id="home-page" class="page">
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Welcome to DotDashLearn</h1>
+                        <p>Master Morse code with modern learning methods</p>
+                    </div>
+                </section>
+
+                <section class="modes-grid">
+                    <div class="mode-card" data-mode="practice">
+                        <div class="mode-icon">🎯</div>
+                        <h2>Practice</h2>
+                        <p>Train your ears to recognize Morse code</p>
+                        <button class="mode-btn btn-primary">Start Practice</button>
+                    </div>
+
+                    <div class="mode-card" data-mode="koch">
+                        <div class="mode-icon">📚</div>
+                        <h2>Koch Method</h2>
+                        <p>Learn progressively with structured lessons</p>
+                        <button class="mode-btn btn-primary">Start Learning</button>
+                    </div>
+
+                    <div class="mode-card" data-mode="passive">
+                        <div class="mode-icon">👂</div>
+                        <h2>Passive Listening</h2>
+                        <p>Get familiar with Morse rhythm effortlessly</p>
+                        <button class="mode-btn btn-primary">Start Listening</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Practice Page -->
+            <div id="practice-page" class="page" style="display: none;">
+                <div class="page-container">
+                    <h1>Practice Mode</h1>
+                    
+                    <div class="practice-layout">
+                        <div class="practice-controls">
+                            <div class="control-group">
+                                <label for="practiceWpm">WPM (Speed): <span id="practiceWpmValue">20</span></label>
+                                <input type="range" id="practiceWpm" min="5" max="40" value="20" class="slider">
+                            </div>
+
+                            <div class="control-group">
+                                <label for="practiceFreq">Frequency (Hz): <span id="practiceFreqValue">700</span></label>
+                                <input type="range" id="practiceFreq" min="400" max="1200" value="700" class="slider">
+                            </div>
+
+                            <div class="control-group">
+                                <label for="practiceContentType">Content Type:</label>
+                                <select id="practiceContentType" class="select-control">
+                                    <option value="letters">Letters (A-Z)</option>
+                                    <option value="numbers">Numbers (0-9)</option>
+                                    <option value="mixed">Mixed</option>
+                                </select>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="practiceGroupLength">Group Length:</label>
+                                <input type="number" id="practiceGroupLength" min="1" max="5" value="1" class="input-control">
+                            </div>
+
+                            <button id="practiceStartBtn" class="btn-primary btn-large">Start Exercise</button>
+                        </div>
+
+                        <div class="practice-area">
+                            <div id="practiceDisplay" class="display-box">
+                                <p>Ready to practice? Adjust settings and click Start Exercise</p>
+                            </div>
+
+                            <div id="practiceExercise" class="exercise-box" style="display: none;">
+                                <div class="current-morse">
+                                    <button id="practicePlayBtn" class="btn-play">▶ Play</button>
+                                    <span id="practiceCurrentChar" class="char-display">?</span>
+                                </div>
+
+                                <div class="input-section">
+                                    <input type="text" id="practiceInput" class="input-control" placeholder="Type your answer..." maxlength="5" autocomplete="off">
+                                    <button id="practiceSubmitBtn" class="btn-primary">Submit</button>
+                                </div>
+
+                                <div id="practiceScore" class="score-display">
+                                    <p>Correct: <span id="practiceCorrect">0</span> | Wrong: <span id="practiceWrong">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Koch Method Page -->
+            <div id="koch-page" class="page" style="display: none;">
+                <div class="page-container">
+                    <h1>Koch Method Learning</h1>
+                    
+                    <div class="koch-layout">
+                        <div class="koch-sidebar">
+                            <div class="lessons-list">
+                                <h3>Lessons</h3>
+                                <div id="kochLessonsList" class="lessons"></div>
+                            </div>
+                        </div>
+
+                        <div class="koch-main">
+                            <div id="kochLessonInfo" class="lesson-info" style="display: none;">
+                                <h2 id="kochLessonTitle">Lesson 1: A & B</h2>
+                                <div class="lesson-progress">
+                                    <p>Phase: <span id="kochPhase">Guided Listening</span></p>
+                                    <div class="progress-bar">
+                                        <div id="kochProgressBar" class="progress-fill"></div>
+                                    </div>
+                                    <p id="kochProgressText">0/30</p>
+                                </div>
+                            </div>
+
+                            <div id="kochLessonContent" class="lesson-content">
+                                <!-- Content will be dynamically inserted -->
+                            </div>
+
+                            <div id="kochNoLessonSelected" class="no-content">
+                                <p>Select a lesson to begin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passive Listening Page -->
+            <div id="passive-page" class="page" style="display: none;">
+                <div class="page-container">
+                    <h1>Passive Listening</h1>
+                    
+                    <div class="passive-layout">
+                        <div class="passive-controls">
+                            <div class="control-group">
+                                <label for="passiveWpm">WPM (Speed): <span id="passiveWpmValue">15</span></label>
+                                <input type="range" id="passiveWpm" min="5" max="40" value="15" class="slider">
+                            </div>
+
+                            <div class="control-group">
+                                <label for="passiveFreq">Frequency (Hz): <span id="passiveFreqValue">750</span></label>
+                                <input type="range" id="passiveFreq" min="400" max="1200" value="750" class="slider">
+                            </div>
+
+                            <div class="control-group">
+                                <label for="passiveMode">Mode:</label>
+                                <select id="passiveMode" class="select-control">
+                                    <option value="random-letters">Random Letters</option>
+                                    <option value="random-numbers">Random Numbers</option>
+                                    <option value="mixed">Mixed</option>
+                                    <option value="groups-5">Groups of 5</option>
+                                    <option value="words">Common Words</option>
+                                </select>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="passiveSpeed">Characters Per Minute Display: <span id="passiveSpeedValue">1</span></label>
+                                <input type="range" id="passiveSpeed" min="1" max="5" value="1" class="slider">
+                            </div>
+
+                            <button id="passiveStartBtn" class="btn-primary btn-large">Start Listening</button>
+                            <button id="passiveStopBtn" class="btn-secondary btn-large" style="display: none;">Stop</button>
+                        </div>
+
+                        <div class="passive-display">
+                            <div id="passiveCurrentChar" class="large-char-display">—</div>
+                            <div id="passiveTranscript" class="transcript">
+                                <p id="passiveTranscriptText"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 DotDashLearn. Learn Morse code with ease.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
